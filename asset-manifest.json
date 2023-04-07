@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/prop-star/static/css/main.d95a79cc.css",
+    "main.js": "/prop-star/static/js/main.fab0f34f.js",
+    "static/media/login.jpg": "/prop-star/static/media/login.3b155d0d3624657bc746.jpg",
+    "static/media/logo.png": "/prop-star/static/media/logo.1d890156c69ff26d9f92.png",
+    "index.html": "/prop-star/index.html",
+    "main.d95a79cc.css.map": "/prop-star/static/css/main.d95a79cc.css.map",
+    "main.fab0f34f.js.map": "/prop-star/static/js/main.fab0f34f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d95a79cc.css",
+    "static/js/main.fab0f34f.js"
+  ]
+}
