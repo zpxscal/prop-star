@@ -1,0 +1,13 @@
+name: Automatic Deployment
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Notify Update Service
+        run: curl -X GET "https://deploy.kessaft.com/deploy?name=prop-star-frontent&path=zpxscal/prop-star&externalport=10009&innerport=3000&secret=${{secrets.AUTH_TOKEN}}"
