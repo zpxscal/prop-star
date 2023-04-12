@@ -38,9 +38,10 @@ function Map() {
     return isLoaded ? (
 
         <GoogleMap
+            className="z-40"
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={9}
+            zoom={8}
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
