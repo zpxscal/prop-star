@@ -220,6 +220,8 @@ function Map() {
       )}
 
       {/* Ich hab mir das jetzt mal angeschaut. Sieht interessant aus. */}
+
+      {/* Ich hab mir das jetzt mal angeschaut. Sieht interessant aus. */}
     </GoogleMap>
   ) : (
     <></>
