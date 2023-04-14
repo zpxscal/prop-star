@@ -203,7 +203,7 @@ function Map() {
       {/* Child components */}
       <></>
 
-      {markers.map((m) => {
+      {markers.map((m) => 
         <Marker
           key={m.id}
           id={m.id}
@@ -216,8 +216,8 @@ function Map() {
               scaledSize: new window.google.maps.Size(20, 20),
             },
           }}
-        ></Marker>;
-      })}
+        ></Marker>
+      )}
 
       {/* Ich hab mir das jetzt mal angeschaut. Sieht interessant aus. */}
     </GoogleMap>
