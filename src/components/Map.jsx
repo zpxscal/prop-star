@@ -318,7 +318,7 @@ function Map() {
                 >
                   <div
                     style={{
-                      display: "flex",
+                      display: "flex", 
                       flexDirection: "column",
                       gap: "15px",
                       flex: "1 1 auto",
@@ -343,8 +343,8 @@ function Map() {
                   </div>
                   <img
                     style={{
-                      height: "80%",
-                      width: "80%",
+                      height: "15vh",
+                      width: "20vw",
                       objectFit: "contain",
                       flex: "1 1 auto",
                     }}
