@@ -324,7 +324,7 @@ function Map() {
                       flex: "1 1 auto",
                     }}
                   >
-                    <p style={{ fontWeight: "500" }}>
+                    <p style={{ fontWeight: "500", textAlign: "justify"}}>
                       {m.infotext}
                     </p>
                     <h1
@@ -343,8 +343,8 @@ function Map() {
                   </div>
                   <img
                     style={{
-                      height: "100%",
-                      width: "100%",
+                      height: "80%",
+                      width: "80%",
                       objectFit: "contain",
                       flex: "1 1 auto",
                     }}
