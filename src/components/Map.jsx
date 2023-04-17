@@ -324,7 +324,7 @@ function Map() {
                       flex: "1 1 auto",
                     }}
                   >
-                    <p style={{ fontWeight: "500", textAlign: "justify"}}>
+                    <p style={{ fontWeight: "500"}}>
                       {m.infotext}
                     </p>
                     <h1
