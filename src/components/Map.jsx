@@ -1,41 +1,45 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import {
   GoogleMap,
   useJsApiLoader,
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-import { m } from "framer-motion";
 
 const containerStyle = {
-  width: "1240px",
-  height: "600px",
+  width: "100vw",
+  height: "100vw",
+  maxWidth: "80vw",
+  maxHeight: "80vh",
+  minHeight: "600px",
   margin: "auto",
 };
 
 //Starting Location
-const center = {
-  //Graz
-  lat: 47.071463853678516,
-  lng: 15.437325381592837,
-};
 
 function Map() {
+  const [infoWindowOpen, setInfoWindowOpen] = useState(null);
+  const [map, setMap] = useState(null);
+  const [center, setCenter] = useState({
+    //Graz
+    lat: 47.071463853678516,
+    lng: 15.437325381592837,
+    zoom: 8,
+  });
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     //Nicht schlau das so zu machen aber egal
     googleMapsApiKey: "AIzaSyA9JSqs-WJvBI4TO6ph_jtz-wZhML9Suik",
   });
 
-  const [map, setMap] = React.useState(null);
-
-  const onLoad = React.useCallback(function callback(map) {
+  const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
     setMap(map);
   }, []);
 
-  const onUnmount = React.useCallback(function callback(map) {
+  const onUnmount = useCallback(function callback(map) {
     setMap(null);
   }, []);
 
@@ -191,6 +195,7 @@ function Map() {
       position: { lat: 47.04745462219467, lng: 15.4709866014228 },
     },
   ];
+
   return isLoaded ? (
     <GoogleMap
       className="z-40"
@@ -200,10 +205,7 @@ function Map() {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      {/* Child components */}
-      <></>
-
-      {markers.map((m) => 
+      {markers.map((m) => (
         <Marker
           key={m.id}
           id={m.id}
@@ -216,8 +218,71 @@ function Map() {
               scaledSize: new window.google.maps.Size(20, 20),
             },
           }}
-        ></Marker>
-      )}
+          onClick={() => {
+            setInfoWindowOpen(m.id);
+            setCenter(m.position);
+            map.setZoom(18);
+          }}
+        >
+          {infoWindowOpen === m.id && (
+            <InfoWindow
+              position={m.position}
+              onCloseClick={() => setInfoWindowOpen(null)}
+              style={{ maxHeight: "100%", maxWidth: "100%" }}
+            >
+              <>
+                <h1
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "22px",
+                    marginBottom: "5px",
+                  }}
+                >
+                  Property
+                </h1>
+                <div
+                  className="flex flex-wrap"
+                  style={{ maxWidth: "100%", maxHeight: "100%", gap: "15px" }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "15px",
+                      flex: "1 1 auto",
+                    }}
+                  >
+                    <p style={{ fontWeight: "500" }}>
+                      Familie, Frank, Kekw, Hasheeesh
+                    </p>
+                    <h1
+                      style={{
+                        fontWeight: "600",
+                        fontSize: "18px",
+                      }}
+                    >
+                      Kontakt
+                    </h1>
+                    <p style={{ fontWeight: "500" }}>
+                      <b>Email: </b> kekw@gmail.com
+                      <br />
+                      <b>Tel.Nr: </b> +43 660 4522456
+                    </p>
+                  </div>
+                  <img
+                    style={{
+                      height: "50%",
+                      width: "50%",
+                      objectFit: "contain",
+                    }}
+                    src="https://cdn.pixabay.com/photo/2016/11/29/03/53/house-1867187_1280.jpg"
+                  />
+                </div>
+              </>
+            </InfoWindow>
+          )}
+        </Marker>
+      ))}
 
       {/* Ich hab mir das jetzt mal angeschaut. Sieht interessant aus. */}
 
