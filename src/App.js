@@ -6,6 +6,8 @@ import Login from './components/Login';
 import About from './components/About';
 import Filler from './components/Filler';
 import Map from './components/Map';
+import LoginCreate from './components/LoginCreate'
+import ForgotPwd from './components/ForgotPwd'
 import {Routes, Route} from 'react-router-dom'
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route path='/search' element={<Filler></Filler>}/>
         <Route path='/map' element={<Map></Map>}/>
         <Route path='/login' element={<Login></Login>}/>
+        <Route path='/loginCreate' element={<LoginCreate></LoginCreate>}/>
+        <Route path='/forgotPwd' element={<ForgotPwd></ForgotPwd>}/>
       </Routes>
       <Footer></Footer>
     </>
