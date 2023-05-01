@@ -381,9 +381,8 @@ function Map() {
   ];
 
   const handleSeach = (info) => {
-    console.log(info);
     setCenter({ lat: parseFloat(info.lat), lng: parseFloat(info.lon) });
-    map.setZoom(18);
+    map.setZoom(20 - info.size * 40);
   };
 
   return isLoaded ? (

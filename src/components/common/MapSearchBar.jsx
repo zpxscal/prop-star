@@ -28,24 +28,30 @@ export default function MapSearchBar({ onSelect }) {
         params: { q: info, format: "json", addressdetails: 1 },
       })
       .then((res) => {
-        console.log(res);
         setOptions(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-
-    console.log("fetch data");
   };
 
   const handleSelection = (i) => {
+    const latSize = i.boundingbox[1] - i.boundingbox[0];
+    const lonSize = i.boundingbox[3] - i.boundingbox[2];
+    const { house_number, road, city, village, country, town } = i.address;
+
     setSearch(
-      `${i.address.road} ${i.address.house_number || ""}, ${
-        i.address.country
-      } ${i.address.city || i.address.village} ${i.address.country}`
+      `${road || ""} ${house_number || ""}${(road || house_number) && ", "}${
+        city || town || village || ""
+      } ${country}`
     );
     setOptions([]);
-    onSelect({ lat: i.lat, lon: i.lon });
+
+    onSelect({
+      lat: i.lat,
+      lon: i.lon,
+      size: latSize > lonSize ? latSize : lonSize,
+    });
   };
 
   return (
@@ -70,7 +76,8 @@ export default function MapSearchBar({ onSelect }) {
                 {o.address.road} {o.address.house_number || ""}
                 <small>
                   {" "}
-                  {o.address.postcode} {o.address.city || o.address.village}{" "}
+                  {o.address.postcode}{" "}
+                  {o.address.city || o.address.town || o.address.village}{" "}
                   {o.address.country}
                 </small>
               </span>
