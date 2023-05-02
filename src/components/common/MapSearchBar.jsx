@@ -41,7 +41,7 @@ export default function MapSearchBar({ onSelect }) {
     const { house_number, road, city, village, country, town } = i.address;
 
     setSearch(
-      `${road || ""} ${house_number || ""}${(road || house_number) && ", "}${
+      `${road || ""} ${house_number || ""}${road || house_number ? ", " : ""}${
         city || town || village || ""
       } ${country}`
     );
