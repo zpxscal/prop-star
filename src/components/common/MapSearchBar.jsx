@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../componentsCss/MapSeachBar.css";
 import { BiSearchAlt2 } from "react-icons/bi";
+import { BsFilterLeft } from "react-icons/bs";
 import axios from "axios";
 
 export default function MapSearchBar({ onSelect, onFilter }) {
@@ -68,13 +69,16 @@ export default function MapSearchBar({ onSelect, onFilter }) {
 
   return (
     <div className="mapSearchbar">
-      <div className="input-container">
-        <input
-          placeholder="Address"
-          value={search}
-          onChange={handleSearchChange}
-        />
-        <BiSearchAlt2 size={25} />
+      <div className="filter-container">
+        <div className="input-container">
+          <input
+            placeholder="Address"
+            value={search}
+            onChange={handleSearchChange}
+          />
+          <BiSearchAlt2 size={25} />
+        </div>
+        <BsFilterLeft className="filter-icon" size={25} />
       </div>
       <div className="filters">
         <span
