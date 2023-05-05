@@ -3,9 +3,10 @@ import "../../componentsCss/MapSeachBar.css";
 import { BiSearchAlt2 } from "react-icons/bi";
 import axios from "axios";
 
-export default function MapSearchBar({ onSelect }) {
+export default function MapSearchBar({ onSelect, onFilter }) {
   const [search, setSearch] = useState("");
   const [options, setOptions] = useState([]);
+  const [filter, setFilter] = useState(null);
   const [inputTiming, setInputTiming] = useState(null);
 
   const handleSearchChange = (e) => {
@@ -20,7 +21,7 @@ export default function MapSearchBar({ onSelect }) {
   };
 
   const handleLoadData = (info) => {
-    if (search.length <= 3) return;
+    if (info.length <= 3) return;
 
     //hatte keine Lust auf Google also hab ich OpenStreetMap genutzt :D
     axios
@@ -54,6 +55,17 @@ export default function MapSearchBar({ onSelect }) {
     });
   };
 
+  const handleFilter = (i) => {
+    if (i === filter) {
+      setFilter(null);
+      onFilter(null);
+      return;
+    }
+
+    setFilter(i);
+    onFilter(i);
+  };
+
   return (
     <div className="mapSearchbar">
       <div className="input-container">
@@ -63,6 +75,26 @@ export default function MapSearchBar({ onSelect }) {
           onChange={handleSearchChange}
         />
         <BiSearchAlt2 size={25} />
+      </div>
+      <div className="filters">
+        <span
+          className={"filter" + (filter === "home" ? " active" : "")}
+          onClick={() => handleFilter("home")}
+        >
+          Home
+        </span>
+        <span
+          className={"filter" + (filter === "property" ? " active" : "")}
+          onClick={() => handleFilter("property")}
+        >
+          Property
+        </span>
+        <span
+          className={"filter" + (filter === "industry" ? " active" : "")}
+          onClick={() => handleFilter("industry")}
+        >
+          Industry
+        </span>
       </div>
       {options.length > 0 && search && (
         <div className="options-container">

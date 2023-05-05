@@ -4,7 +4,8 @@
   width: 100%;
   position: relative;
   display: inline-block;
-  margin: 10px;
+  margin-bottom: 10px;
+  z-index: 1500;
 }
 
 .mapSearchbar .input-container {
@@ -59,4 +60,24 @@
 
 .mapSearchbar .options-container .option:hover {
   filter: brightness(95%);
+}
+
+.mapSearchbar .filters {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.mapSearchbar .filters .filter {
+  padding: 3px 8px;
+  background: white;
+  border-radius: 1000px;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.mapSearchbar .filters .filter.active {
+  font-weight: 700;
 }
