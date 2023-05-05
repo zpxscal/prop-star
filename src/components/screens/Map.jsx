@@ -7,6 +7,7 @@ import {
 } from "@react-google-maps/api";
 import "../../componentsCss/Map.css";
 import MapSearchBar from "../common/MapSearchBar";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const containerStyle = {
   width: "100vw",
@@ -339,9 +340,8 @@ function Map() {
       iconUrl: "https://cdn-icons-png.flaticon.com/512/1838/1838480.png",
       position: { lat: 47.070006067545485, lng: 15.431524086017452 },
       headname: "Wohnanlage",
-      infotext:
-        "Verkaufe geräumige Wonanlage mit 5 Wohnungen und großem Garten. Ruhige Lage, gute Anbindung an öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Schulen und Kindergärten in der Nähe. Ideal für Familien und Paare.",
-      infotext: "https://i.postimg.cc/kGz8vwLJ/wohn-Anlage7.png",
+      infotext:"Verkaufe geräumige Wonanlage mit 5 Wohnungen und großem Garten. Ruhige Lage, gute Anbindung an öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Schulen und Kindergärten in der Nähe. Ideal für Familien und Paare.",
+      vorschauBild: "https://i.postimg.cc/kGz8vwLJ/wohn-Anlage7.png",
       email: "markler@gmail.com",
       telnummer: "+43 677 6789190",
     },
@@ -350,9 +350,8 @@ function Map() {
       iconUrl: "https://cdn-icons-png.flaticon.com/512/1838/1838480.png",
       position: { lat: 47.073316233380204, lng: 15.44099558606298 },
       headname: "Wohnanlage",
-      infotext:
-        "Verkaufe geräumige Wonanlage mit 6 Wohnungen und großem Garten. Ruhige Lage, gute Anbindung an öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Schulen und Kindergärten in der Nähe. Ideal für Familien und Paare.",
-      infotext: "https://i.postimg.cc/zXXTGhhm/wohn-Anlage8.png",
+      infotext:"Verkaufe geräumige Wonanlage mit 6 Wohnungen und großem Garten. Ruhige Lage, gute Anbindung an öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Schulen und Kindergärten in der Nähe. Ideal für Familien und Paare.",
+      vorschauBild: "https://i.postimg.cc/zXXTGhhm/wohn-Anlage8.png",
       email: "markler@gmail.com",
       telnummer: "+43 677 6789190",
     },
@@ -361,9 +360,8 @@ function Map() {
       iconUrl: "https://cdn-icons-png.flaticon.com/512/1838/1838480.png",
       position: { lat: 47.105020895110705, lng: 15.420788857494795 },
       headname: "Wohnanlage",
-      infotext:
-        "Verkaufe geräumige Wonanlage mit 4 Wohnungen und großem Garten. Ruhige Lage, gute Anbindung an öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Schulen und Kindergärten in der Nähe. Ideal für Familien und Paare.",
-      infotext: "https://i.postimg.cc/hvGhc95p/wohn-Anlage9.png",
+      infotext:"Verkaufe geräumige Wonanlage mit 4 Wohnungen und großem Garten. Ruhige Lage, gute Anbindung an öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Schulen und Kindergärten in der Nähe. Ideal für Familien und Paare.",
+      vorschauBild: "https://i.postimg.cc/hvGhc95p/wohn-Anlage9.png",
       email: "markler@gmail.com",
       telnummer: "+43 677 6789190",
     },
@@ -372,9 +370,8 @@ function Map() {
       iconUrl: "https://cdn-icons-png.flaticon.com/512/1838/1838480.png",
       position: { lat: 47.04745462219467, lng: 15.4709866014228 },
       headname: "Wohnanlage",
-      infotext:
-        "Verkaufe geräumige Wonanlage mit 2 Wohnungen und großem Garten. Ruhige Lage, gute Anbindung an öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Schulen und Kindergärten in der Nähe. Ideal für Familien und Paare.",
-      infotext: "https://i.postimg.cc/MKvXLmRG/wohn-Anlage10.png",
+      infotext:"Verkaufe geräumige Wonanlage mit 2 Wohnungen und großem Garten. Ruhige Lage, gute Anbindung an öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Schulen und Kindergärten in der Nähe. Ideal für Familien und Paare.",
+      vorschauBild: "https://i.postimg.cc/MKvXLmRG/wohn-Anlage10.png",
       email: "markler@gmail.com",
       telnummer: "+43 677 6789190",
     },
