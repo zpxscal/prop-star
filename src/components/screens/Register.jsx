@@ -30,7 +30,7 @@ export default function Register() {
             <label>Repeat Password</label>
             <input className="border p-2" type="password" />
           </div>
-          <button className="bg-[#00df9a] border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white">
+          <button className="border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white">
             Create Account
           </button>
           <div
