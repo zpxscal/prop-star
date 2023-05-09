@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import axios from "axios";
 import logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get("/whoami")
+      .then(async (res) => {
+        setLoggedIn(true);
+      })
+      .catch((error) => {
+        //console.log(error);
+        setLoggedIn(false);
+      });
+  }, []);
 
   const handleNav = () => {
     setNav(!nav);
@@ -34,9 +48,15 @@ const Navbar = () => {
           <a href="/map">Map</a>
         </li>
 
-        <li className="p-4">
-          <a href="/login">Login</a>
-        </li>
+        {loggedIn ? (
+          <li className="p-4">
+            <a href="/dashboard">Dashboard</a>
+          </li>
+        ) : (
+          <li className="p-4">
+            <a href="/login">Login</a>
+          </li>
+        )}
       </ul>
 
       <div onClick={handleNav} className="block md:hidden">

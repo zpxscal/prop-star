@@ -19,7 +19,7 @@ export default function Login() {
       .get("/whoami")
       .then(async (res) => {
         if (!res.data.emailVerified) return navigate("/emailverification");
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.log(error);
@@ -42,7 +42,7 @@ export default function Login() {
       })
       .then((res) => {
         if (!res.data.emailVerified) return navigate("/emailverification");
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((err) => {
         if (err.toJSON().message === "Network Error")
@@ -55,7 +55,7 @@ export default function Login() {
             setError(englisch.errors.wrong_login_data);
             break;
           case 403:
-            navigate("/");
+            navigate("/dashboard");
             break;
           case 500:
             setError(englisch.errors["500"]);
@@ -100,12 +100,12 @@ export default function Login() {
           </div>
           <div
             className="flex justify-between cursor-pointer"
-            onClick={(e) => {
+            onClick={() => {
               setRemember(!remember);
             }}
           >
             <p className="flex items-center">
-              <input className="mr-2" type="checkbox" value={remember} />{" "}
+              <input className="mr-2" type="checkbox" checked={remember} />{" "}
               Remember Me
             </p>
             <div className="mr-2 flext items-center">
