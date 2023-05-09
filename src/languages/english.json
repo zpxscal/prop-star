@@ -1,0 +1,113 @@
+{
+  "general": {
+    "login": "Login",
+    "register": "Register",
+    "register-as-creator": "Register as Creator",
+    "next": "Next",
+    "previous": "Previous",
+
+    "move_on": "Move on!",
+    "lets_go": "Let's go!"
+  },
+
+  "auth": {},
+
+  "errors": {
+    "offline": "Probably you are Offline. Please check your Internet connection!",
+
+    "500": "A server internal error has occurred. Please try again a little later.",
+    "415": "Something went wrong while transferring data. Please try again.",
+
+    "wrong_login_data": "This Information does not match to an Account.",
+    "wrong_password": "This is not the current Password of this Account.",
+
+    "link": {
+      "missing": "Please enter a Link.",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "format": "This is no valid Link.",
+      "insecure": "This Link is not secure. It needs to start with https://"
+    },
+    "username": {
+      "missing": "Please enter a username",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "format": "This is no valid Username. You can only use A-Z, 0-9, _, - and .",
+      "length": "The username must be at least 4 characters long and no more than 30 characters long.",
+      "usable": "This Username is not usable.",
+      "unavailable": "This username is already taken"
+    },
+    "displayname": {
+      "missing": "Please enter a displayname",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "length": "The displayname must be at least 4 characters long and no more than 30 characters long."
+    },
+    "email": {
+      "missing": "Please enter your email address.",
+      "type": "Something went wrong while transferring the data. Please try again.",
+      "fake": "Please enter your real email address!",
+      "format": "Please provide a valid email address.",
+      "unavailable": "This email is already taken"
+    },
+    "emailverification": {
+      "wrong": "Sorry, this Code is invalid or has timed out."
+    },
+    "firstname": {
+      "missing": "Please provide your first name",
+      "type": "Something went wrong while transferring the data. Please try again.",
+      "length": "Please enter your real first name",
+      "format": "Please specify your real first name."
+    },
+    "lastname": {
+      "missing": "Please provide your last name",
+      "type": "Something went wrong while transferring the data. Please try again.",
+      "length": "Please enter your real last name",
+      "format": "Please specify your real last name."
+    },
+    "password": {
+      "missing": "Please provide a strong password",
+      "type": "Something went wrong while transferring the data. Please try again.",
+      "length": "Your password must be at least 8 and no more than 30 characters long.",
+      "format": "Your password must contain at least 1 special character, 1 number, 1 lowercase letter and 1 uppercase letter."
+    },
+    "passwordConf": {
+      "missing": "Please confirm your password.",
+      "notEquals": "The passwords do not match."
+    },
+    "passwordreset": {
+      "autherized": "You are already Logged in. So you can't reset the Password this way.",
+      "invalid": "Sorry, this code is invalid by now."
+    },
+    "birthdate": {
+      "missing": "Please confirm your password.",
+      "type": "Something went wrong while transferring the data. Please try again.",
+      "young": "Sorry, you need to be at least 18 years old."
+    },
+    "hcaptcha": {
+      "missing": "You need to verify that you are a human!",
+      "invalid": "The captcha is invalid. Please try again."
+    },
+    "emailVerificationCode": {
+      "missing": "Please enter the code you got via email.",
+      "format": "This is no correct code for email verification.",
+      "invlaid": "Sorry, this code already expired"
+    },
+    "collectionName": {
+      "missing": "Please enter a collection name",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "format": "This is no valid collection name.",
+      "length": "The collection name must be at least 4 characters long and no more than 20 characters long.",
+      "unavailable": "You have used this collection name already."
+    },
+    "imageName": {
+      "missing": "Please enter a image name",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "format": "This is no valid image name.",
+      "length": "The image name must be at least 4 characters long and no more than 100 characters long."
+    },
+    "file": {
+      "missing": "Please select a file.",
+      "type": "This file has not one of the allowed types. Please check again.",
+      "size": "Sorry, the file should not be bigger than 10 MB.",
+      "timeout": "You can change the file only every 24 hours."
+    }
+  }
+}
