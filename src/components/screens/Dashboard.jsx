@@ -14,7 +14,7 @@ function Dashboard() {
 
   const handleLogout = () => {
     axios
-      .post("/api/auth/logout")
+      .delete("/api/auth/logout")
       .then((res) => navigate("/login"))
       .catch((error) => {
         console.log(error);
@@ -24,7 +24,7 @@ function Dashboard() {
   return (
     <button
       type="button"
-      className="border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white"
+      className="border my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white"
       onClick={handleLogout}
     >
       Logout
