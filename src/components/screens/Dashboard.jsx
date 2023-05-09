@@ -6,7 +6,7 @@ function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("/whoami").catch((error) => {
+    axios.get("/api/whoami").catch((error) => {
       //console.log(error);
       navigate("/login");
     });

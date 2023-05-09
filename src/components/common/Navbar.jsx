@@ -9,7 +9,7 @@ const Navbar = () => {
 
   useEffect(() => {
     axios
-      .get("/whoami")
+      .get("/api/whoami")
       .then(async (res) => {
         setLoggedIn(true);
       })

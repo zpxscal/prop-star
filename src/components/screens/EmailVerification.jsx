@@ -14,7 +14,7 @@ export default function VertificationPage() {
 
   useEffect(() => {
     axios
-      .get("/whoami")
+      .get("/api/whoami")
       .then(async (res) => {
         if (res.data.emailVerified) navigate("/dashboard");
       })
