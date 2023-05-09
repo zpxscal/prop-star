@@ -17,6 +17,7 @@ export default function VertificationPage() {
       .get("/api/whoami")
       .then(async (res) => {
         if (res.data.emailVerified) navigate("/dashboard");
+        axios.get("/api/auth/emailverification");
       })
       .catch((error) => {
         console.log(error);
@@ -44,7 +45,7 @@ export default function VertificationPage() {
       return setError(englisch.errors.emailVerificationCode.format);
 
     axios
-      .put("/api/auth/emailverification", { code })
+      .put("/api/auth/emailverification/" + code)
       .then((res) => navigate("/dashboard"))
       .catch((error) => {
         console.log(error);
