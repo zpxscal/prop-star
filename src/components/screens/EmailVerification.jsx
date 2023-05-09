@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import englisch from "../../languages/english.json";
-import TypeCheck from "../../services/typeCheck";
 
 import loginImg from "../../assets/login.jpg";
-import { FaArrowLeft } from "react-icons/fa";
 
 export default function VertificationPage() {
   const navigate = useNavigate();
