@@ -34,7 +34,7 @@ export default function Register() {
   const handleUsernameCheck = () => {
     let errs = new TypeCheck(username).isUsername();
 
-    if (errs !== null) return handleInputError(errs);
+    if (errs != null) return handleInputError(errs);
 
     axios
       .get("/api/auth/available/username", { params: { username } })
@@ -66,7 +66,7 @@ export default function Register() {
   const handleEmailCheck = () => {
     let errs = new TypeCheck(email).isEmail();
 
-    if (errs !== null) return handleInputError(errs);
+    if (errs != null) return handleInputError(errs);
 
     axios
       .get("/api/auth/available/email", { params: { email } })
@@ -107,7 +107,7 @@ export default function Register() {
   const handlePasswordCheck = () => {
     let err = new TypeCheck(password).isPassword();
 
-    if (err !== null) return handleInputError(err);
+    if (err != null) return handleInputError(err);
   };
 
   const handleConfPasswordCheck = () => {
