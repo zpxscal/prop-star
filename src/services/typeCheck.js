@@ -62,4 +62,4 @@ const TypeCheck = class {
   }
 };
 
-module.exports = TypeCheck;
+export default TypeCheck;
