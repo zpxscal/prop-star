@@ -24,7 +24,7 @@ export default function Register() {
       .get("/whoami")
       .then(async (res) => {
         if (!res.data.emailVerified) return navigate("/emailverification");
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.log(error);

@@ -16,7 +16,7 @@ export default function VertificationPage() {
     axios
       .get("/whoami")
       .then(async (res) => {
-        navigate("/");
+        if (res.data.emailVerified) navigate("/dashboard");
       })
       .catch((error) => {
         console.log(error);
