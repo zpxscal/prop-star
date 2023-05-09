@@ -9,6 +9,7 @@ import Map from "./components/screens/Map";
 import Register from "./components/screens/Register";
 import ForgotPwd from "./components/screens/ForgotPwd";
 import { Routes, Route } from "react-router-dom";
+import VertificationPage from "./components/screens/VertificationPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotPwd" element={<ForgotPwd />} />
+        <Route path="/vertification" element={<VertificationPage />}/>
       </Routes>
       <Footer />
     </>

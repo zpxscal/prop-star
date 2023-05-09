@@ -9,6 +9,7 @@ export default function MapSearchBar({ onSelect, onFilter }) {
   const [options, setOptions] = useState([]);
   const [filter, setFilter] = useState(null);
   const [inputTiming, setInputTiming] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -67,6 +68,10 @@ export default function MapSearchBar({ onSelect, onFilter }) {
     onFilter(i);
   };
 
+  const handlePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
   return (
     <div className="mapSearchbar">
       <div className="filter-container">
@@ -78,7 +83,13 @@ export default function MapSearchBar({ onSelect, onFilter }) {
           />
           <BiSearchAlt2 size={25} />
         </div>
-        <BsFilterLeft className="filter-icon" size={25} />
+        <BsFilterLeft className="filter-icon" size={25} 
+          onClick={handlePopup}
+        />{showPopup && (
+          <div className="popup-container">
+          <p>KesSaft</p>
+        </div>
+        )}
       </div>
       <div className="filters">
         <span
