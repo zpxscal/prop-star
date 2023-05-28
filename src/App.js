@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import Navbar from "./components/common/Navbar";
 import Hero from "./components/screens/Hero";
@@ -15,6 +16,7 @@ import Dashboard from "./components/screens/Dashboard";
 import Create from "./components/screens/Create";
 
 function App() {
+  axios.defaults.baseURL = "https://prop-star.kessaft.com/";
   return (
     <>
       <Navbar />

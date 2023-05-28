@@ -117,32 +117,19 @@ const TypeCheck = class {
     return null;
   }
 
-  isLocation(area = false) {
+  isLocation() {
     if (!this.value) return { where: this.where, error: "missing" };
 
-    if (!area) {
-      if (
-        typeof this.value !== "object" ||
-        !this.value.lat ||
-        !this.value.lng ||
-        typeof this.value.lat !== "number" ||
-        typeof this.value.lng !== "number" ||
-        !this.value.place_id ||
-        typeof this.value.place_id !== "number"
-      )
-        return { where: this.where, error: "type" };
-    } else {
-      if (
-        typeof this.value !== "object" ||
-        !this.value.lat ||
-        !this.value.lng ||
-        typeof this.value.lat !== "number" ||
-        typeof this.value.lng !== "number" ||
-        !this.value.place_id ||
-        typeof this.value.place_id !== "number"
-      )
-        return { where: this.where, error: "type" };
-    }
+    if (
+      typeof this.value !== "object" ||
+      !this.value.lat ||
+      !this.value.lng ||
+      typeof this.value.lat !== "number" ||
+      typeof this.value.lng !== "number" ||
+      !this.value.place_id ||
+      typeof this.value.place_id !== "number"
+    )
+      return { where: this.where, error: "type" };
 
     return null;
   }

@@ -25,19 +25,18 @@ export default function Create() {
   useEffect(() => {
     axios
       .get("/api/whoami")
-      .then((res) => {
-        axios
-          .get("/api/item/types")
-          .then((res) => {
-            setTypes(res.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
+      .then((res) => {})
       .catch((error) => {
         //console.log(error);
-        navigate("/login");
+        //navigate("/login");
+      });
+    axios
+      .get("/api/item/types")
+      .then((res) => {
+        setTypes(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 
@@ -57,14 +56,15 @@ export default function Create() {
     err.push(new TypeCheck(location, "location").isLocation());
     err.push(new TypeCheck(price, "price").isPrice());
 
-    if (types.includes(type)) err.push({ where: "itemtype", error: "invalid" });
+    if (!types.includes(type))
+      err.push({ where: "itemtype", error: "invalid" });
 
     err = err.filter((e) => e != null);
 
     if (err.length) return showErrors(err);
 
     axios
-      .post("/item/create", {
+      .post("/api/item/create", {
         title,
         type,
         description,
@@ -179,7 +179,15 @@ export default function Create() {
               />
               <div className="flex flex-col py-2">
                 <label>Address</label>
-                <LocationPicker onSelect={(loc) => setLocation(loc)} />
+                <LocationPicker
+                  onSelect={(loc) =>
+                    setLocation({
+                      ...loc,
+                      lng: parseFloat(loc.lon),
+                      lat: parseFloat(loc.lat),
+                    })
+                  }
+                />
               </div>
             </>
           )}
