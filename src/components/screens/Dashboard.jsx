@@ -8,7 +8,7 @@ function Dashboard() {
   useEffect(() => {
     axios.get("/api/whoami").catch((error) => {
       //console.log(error);
-      //navigate("/login");
+      navigate("/login");
     });
   }, []);
 

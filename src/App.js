@@ -16,7 +16,7 @@ import Dashboard from "./components/screens/Dashboard";
 import Create from "./components/screens/Create";
 
 function App() {
-  axios.defaults.baseURL = "https://prop-star.kessaft.com/";
+  //axios.defaults.baseURL = "https://prop-star.kessaft.com/";
   return (
     <>
       <Navbar />

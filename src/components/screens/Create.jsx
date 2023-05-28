@@ -25,18 +25,19 @@ export default function Create() {
   useEffect(() => {
     axios
       .get("/api/whoami")
-      .then((res) => {})
-      .catch((error) => {
-        //console.log(error);
-        //navigate("/login");
-      });
-    axios
-      .get("/api/item/types")
       .then((res) => {
-        setTypes(res.data);
+        axios
+          .get("/api/item/types")
+          .then((res) => {
+            setTypes(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error);
+        navigate("/login");
       });
   }, []);
 
