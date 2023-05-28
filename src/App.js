@@ -1,4 +1,5 @@
 import React from "react";
+
 import Navbar from "./components/common/Navbar";
 import Hero from "./components/screens/Hero";
 import Footer from "./components/common/Footer";
@@ -11,6 +12,7 @@ import ForgotPwd from "./components/screens/ForgotPwd";
 import { Routes, Route } from "react-router-dom";
 import EmailVerification from "./components/screens/EmailVerification";
 import Dashboard from "./components/screens/Dashboard";
+import Create from "./components/screens/Create";
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="/forgotPwd" element={<ForgotPwd />} />
         <Route path="/emailverification" element={<EmailVerification />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/create" element={<Create />} />
       </Routes>
       <Footer />
     </>

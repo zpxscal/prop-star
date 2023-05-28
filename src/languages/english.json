@@ -108,6 +108,31 @@
       "type": "This file has not one of the allowed types. Please check again.",
       "size": "Sorry, the file should not be bigger than 10 MB.",
       "timeout": "You can change the file only every 24 hours."
+    },
+    "price": {
+      "missing": "Please select a price.",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "negative": "The Price must be positive."
+    },
+    "title": {
+      "missing": "Please enter a title.",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "length": "The title must be no more than 150 characters long."
+    },
+    "description": {
+      "missing": "Please enter a description.",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "length": "The title must be no more than 1000 characters long."
+    },
+    "location": {
+      "missing": "Please enter the location data.",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "boundary": "Make sure to select a area place!"
+    },
+    "itemtype": {
+      "missing": "Please select a property type.",
+      "type": "Something went wrong while transferring data. Please try again.",
+      "invalid": "This is no possible property type."
     }
   }
 }

@@ -1,0 +1,67 @@
+.picker-container {
+  max-width: min(60vw, 400px);
+  min-width: 150px;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  z-index: 1500;
+}
+
+.picker-container .input-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: white;
+  height: 40px;
+  width: 100%;
+}
+
+.picker-container .input-container.shadow {
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.picker-container .input-container input {
+  height: 25px;
+  width: 100%;
+}
+
+.picker-container .input-container input:focus {
+  outline: none;
+}
+
+.picker-container .input-container svg {
+  fill: rgb(72, 71, 71);
+  cursor: pointer;
+}
+
+.picker-container .options-container {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 50vh;
+  overflow-y: auto;
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.picker-container .options-container .option {
+  padding: 5px 10px;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.picker-container .options-container .option:hover {
+  filter: brightness(95%);
+}
