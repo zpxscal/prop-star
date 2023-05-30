@@ -22,6 +22,12 @@ const containerStyle = {
 //Starting Location
 
 function Map() {
+  const markerIcons = {
+    House: "https://i.postimg.cc/L8tQwk2w/marker-Haus1.png",
+    Industry: "https://i.postimg.cc/CKmsN4k4/land1.jpg",
+    Property: "https://i.postimg.cc/xdFNGtwX/wohn-Anlage5.png",
+  };
+
   const markers = [
     {
       id: "markerHouse1",
@@ -462,7 +468,7 @@ function Map() {
               label: "",
               position: { lat: m.location.lat, lng: m.location.lng },
               icon: {
-                url: m.iconUrl,
+                url: markerIcons[m.type],
                 scaledSize: new window.google.maps.Size(20, 20),
               },
             }}
