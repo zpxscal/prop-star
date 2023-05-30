@@ -4,12 +4,26 @@ import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const navigate = useNavigate();
+  const [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/whoami").catch((error) => {
-      //console.log(error);
-      navigate("/login");
-    });
+    axios
+      .get("/api/whoami")
+      .then((res) => {
+        axios
+          .get("/api/item/own")
+          .then((res) => {
+            setProperties(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+            alert("something went wrong.");
+          });
+      })
+      .catch((error) => {
+        //console.log(error);
+        navigate("/login");
+      });
   }, []);
 
   const handleLogout = () => {
@@ -39,44 +53,42 @@ function Dashboard() {
                   <thead className="border-b font-medium dark:border-neutral-500">
                     <tr>
                       <th scope="col" className="px-6 py-4">
-                        #
+                        Thumbnail
                       </th>
                       <th scope="col" className="px-6 py-4">
-                        First
+                        Title
                       </th>
                       <th scope="col" className="px-6 py-4">
-                        Last
+                        Description
                       </th>
                       <th scope="col" className="px-6 py-4">
-                        Handle
+                        Type
+                      </th>
+                      <th scope="col" className="px-6 py-4">
+                        Price
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b dark:border-neutral-500">
-                      <td className="whitespace-nowrap px-6 py-4 font-medium">
-                        1
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-4">Mark</td>
-                      <td className="whitespace-nowrap px-6 py-4">Otto</td>
-                      <td className="whitespace-nowrap px-6 py-4">@mdo</td>
-                    </tr>
-                    <tr className="border-b dark:border-neutral-500">
-                      <td className="whitespace-nowrap px-6 py-4 font-medium">
-                        2
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-4">Jacob</td>
-                      <td className="whitespace-nowrap px-6 py-4">Thornton</td>
-                      <td className="whitespace-nowrap px-6 py-4">@fat</td>
-                    </tr>
-                    <tr className="border-b dark:border-neutral-500">
-                      <td className="whitespace-nowrap px-6 py-4 font-medium">
-                        3
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-4">Larry</td>
-                      <td className="whitespace-nowrap px-6 py-4">Wild</td>
-                      <td className="whitespace-nowrap px-6 py-4">@twitter</td>
-                    </tr>
+                    {properties.map((p) => (
+                      <tr className="border-b dark:border-neutral-500">
+                        <td className="whitespace-nowrap px-6 py-4 font-medium">
+                          <img src={p.images[0]} />
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          {p.title}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          {p.description}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          {p.type}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          {p.intended_price}
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

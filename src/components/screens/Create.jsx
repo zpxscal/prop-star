@@ -51,7 +51,7 @@ export default function Create() {
 
   const handleSubmit = () => {
     let err = [];
-    err.push(new TypeCheck(tumbnail, "link").isLink());
+    err.push(new TypeCheck(tumbnail, "link").isLink(true));
     err.push(new TypeCheck(title, "title").isTitle());
     err.push(new TypeCheck(description, "description").isTitle());
     err.push(new TypeCheck(location, "location").isLocation());
