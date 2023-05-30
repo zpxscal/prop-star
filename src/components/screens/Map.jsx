@@ -413,6 +413,10 @@ function Map() {
       });
   }, []);
 
+  useEffect(() => {
+    setFiltered(properties);
+  }, [properties]);
+
   const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);

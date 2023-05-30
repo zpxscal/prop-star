@@ -50,7 +50,7 @@ export default function MapSearchBar({ onSelect, onFilter }) {
       <div className="filters">
         {types.map((t) => (
           <span
-            className={"filter" + (filter === "home" ? " active" : "")}
+            className={"filter" + (filter === t ? " active" : "")}
             onClick={() => handleFilter(t)}
           >
             {t}

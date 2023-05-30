@@ -52,7 +52,7 @@ function Dashboard() {
                 <table className="min-w-full text-left text-sm font-light">
                   <thead className="border-b font-medium dark:border-neutral-500">
                     <tr>
-                      <th scope="col" className="px-6 py-4">
+                      <th scope="col" className="px-6 py-4 w-1/6">
                         Thumbnail
                       </th>
                       <th scope="col" className="px-6 py-4">
@@ -75,8 +75,11 @@ function Dashboard() {
                         className="border-b dark:border-neutral-500"
                         key={p._id}
                       >
-                        <td className="whitespace-nowrap px-6 py-4 font-medium">
-                          <img src={p.images.find((i) => i.thumbnail).data} />
+                        <td className="whitespace-nowrap px-6 py-4 font-medium w-1/6">
+                          <img
+                            className="w-1/6"
+                            src={p.images.find((i) => i.thumbnail).data}
+                          />
                         </td>
                         <td className="whitespace-nowrap px-6 py-4">
                           {p.title}
