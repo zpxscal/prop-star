@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../componentsCss/MapSeachBar.css";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { BsFilterLeft } from "react-icons/bs";
