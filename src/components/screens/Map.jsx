@@ -23,9 +23,9 @@ const containerStyle = {
 
 function Map() {
   const markerIcons = {
-    House: "https://i.postimg.cc/L8tQwk2w/marker-Haus1.png",
-    Industry: "https://i.postimg.cc/CKmsN4k4/land1.jpg",
-    Property: "https://i.postimg.cc/xdFNGtwX/wohn-Anlage5.png",
+    House: "https://cdn-icons-png.flaticon.com/512/9899/9899458.png",
+    Industry: "https://cdn-icons-png.flaticon.com/512/6752/6752040.png",
+    Property: "https://cdn-icons-png.flaticon.com/512/1838/1838480.png",
   };
 
   const markers = [

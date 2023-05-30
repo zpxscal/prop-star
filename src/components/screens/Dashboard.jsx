@@ -91,7 +91,9 @@ function Dashboard() {
                           {p.type}
                         </td>
                         <td className="whitespace-nowrap px-6 py-4">
-                          {p.intended_price}
+                          {p.intended_price
+                            ? p.intended_price.toLocaleString() + " €"
+                            : "-"}
                         </td>
                       </tr>
                     ))}
