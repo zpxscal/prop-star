@@ -8,6 +8,7 @@ import {
 import "../../componentsCss/Map.css";
 import MapSearchBar from "../common/MapSearchBar";
 import { FaBars, FaTimes } from "react-icons/fa";
+import axios from "axios";
 
 const containerStyle = {
   width: "100vw",
