@@ -8,6 +8,18 @@ import LocationPicker from "./LocationPicker";
 export default function MapSearchBar({ onSelect, onFilter }) {
   const [filter, setFilter] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [types, setTypes] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/api/item/types")
+      .then((res) => {
+        setTypes(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleFilter = (i) => {
     if (i === filter) {
@@ -36,24 +48,14 @@ export default function MapSearchBar({ onSelect, onFilter }) {
         )}
       </div>
       <div className="filters">
-        <span
-          className={"filter" + (filter === "home" ? " active" : "")}
-          onClick={() => handleFilter("home")}
-        >
-          Home
-        </span>
-        <span
-          className={"filter" + (filter === "property" ? " active" : "")}
-          onClick={() => handleFilter("property")}
-        >
-          Property
-        </span>
-        <span
-          className={"filter" + (filter === "industry" ? " active" : "")}
-          onClick={() => handleFilter("industry")}
-        >
-          Industry
-        </span>
+        {types.map((t) => (
+          <span
+            className={"filter" + (filter === "home" ? " active" : "")}
+            onClick={() => handleFilter(t)}
+          >
+            {t}
+          </span>
+        ))}
       </div>
     </div>
   );

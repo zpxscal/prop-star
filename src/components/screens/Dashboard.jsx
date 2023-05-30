@@ -71,9 +71,12 @@ function Dashboard() {
                   </thead>
                   <tbody>
                     {properties.map((p) => (
-                      <tr className="border-b dark:border-neutral-500">
+                      <tr
+                        className="border-b dark:border-neutral-500"
+                        key={p._id}
+                      >
                         <td className="whitespace-nowrap px-6 py-4 font-medium">
-                          <img src={p.images[0]} />
+                          <img src={p.images.find((i) => i.thumbnail).data} />
                         </td>
                         <td className="whitespace-nowrap px-6 py-4">
                           {p.title}

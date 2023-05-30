@@ -386,7 +386,8 @@ function Map() {
 
   const [infoWindowOpen, setInfoWindowOpen] = useState(null);
   const [map, setMap] = useState(null);
-  const [filtered, setFiltered] = useState(markers);
+  const [properties, setProperties] = useState([]);
+  const [filtered, setFiltered] = useState(properties);
   const [center, setCenter] = useState({
     //Graz
     lat: 47.071463853678516,
@@ -398,6 +399,18 @@ function Map() {
     //Nicht schlau das so zu machen aber egal
     googleMapsApiKey: "AIzaSyA9JSqs-WJvBI4TO6ph_jtz-wZhML9Suik",
   });
+
+  useEffect(() => {
+    axios
+      .get("/api/item/all")
+      .then((res) => {
+        setProperties(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("an error happened :D");
+      });
+  }, []);
 
   const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
@@ -419,11 +432,11 @@ function Map() {
 
   const handleFilter = (f) => {
     if (f === null) {
-      setFiltered(markers);
+      setFiltered(properties);
       return;
     }
 
-    setFiltered(markers.filter((m) => m.type === f));
+    setFiltered(properties.filter((m) => m.type === f));
   };
 
   return isLoaded ? (
@@ -437,26 +450,26 @@ function Map() {
       >
         {filtered.map((m) => (
           <Marker
-            key={m.id}
-            id={m.id}
+            key={m._id}
+            id={m._id}
             options={{
               draggable: false,
               label: "",
-              position: { ...m.position },
+              position: { lat: m.location.lat, lng: m.location.lng },
               icon: {
                 url: m.iconUrl,
                 scaledSize: new window.google.maps.Size(20, 20),
               },
             }}
             onClick={() => {
-              setInfoWindowOpen(m.id);
-              setCenter(m.position);
+              setInfoWindowOpen(m._id);
+              setCenter({ lat: m.location.lat, lng: m.location.lng });
               map.setZoom(18);
             }}
           >
-            {infoWindowOpen === m.id && (
+            {infoWindowOpen === m._id && (
               <InfoWindow
-                position={m.position}
+                position={{ lat: m.location.lat, lng: m.location.lng }}
                 onCloseClick={() => setInfoWindowOpen(null)}
                 style={{ maxHeight: "100%", maxWidth: "100%" }}
               >
@@ -468,7 +481,7 @@ function Map() {
                       marginBottom: "5px",
                     }}
                   >
-                    {m.headname}
+                    {m.title}
                   </h1>
                   <div
                     className="flex info-wrapper"
@@ -482,7 +495,7 @@ function Map() {
                         flex: "1 1 auto",
                       }}
                     >
-                      <p style={{ fontWeight: "500" }}>{m.infotext}</p>
+                      <p style={{ fontWeight: "500" }}>{m.description}</p>
                       <h1
                         style={{
                           fontWeight: "600",
@@ -492,9 +505,9 @@ function Map() {
                         Kontakt
                       </h1>
                       <p style={{ fontWeight: "500" }}>
-                        <b>E-Mail: </b> {m.email}
+                        <b>E-Mail: </b> {m.seller.email}
                         <br />
-                        <b>Tel.Nr: </b> {m.telnummer}
+                        <b>Tel.Nr: </b> {m.seller.tel || ""}
                       </p>
                     </div>
                     <img
@@ -505,7 +518,7 @@ function Map() {
                         flex: "1 1 auto",
                       }}
                       src=/*"https://cdn.pixabay.com/photo/2016/11/29/03/53/house-1867187_1280.jpg" d*/ {
-                        m.vorschauBild
+                        m.images.find((i) => i.thumbnail).data
                       }
                     />
                   </div>
