@@ -40,7 +40,7 @@ function Dashboard() {
       <div className="max-w-[1240px] mx-auto">
         <button
           type="button"
-          className="border my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white"
+          className="border my-5 py-2 px-2 bg-indigo-600 hover:bg-indigo-500 text-white"
           onClick={() => navigate("/create")}
         >
           Create
@@ -77,7 +77,7 @@ function Dashboard() {
                       >
                         <td className="whitespace-nowrap px-6 py-4 font-medium w-1/6">
                           <img
-                            className="w-1/6"
+                            className="w-full"
                             src={p.images.find((i) => i.thumbnail).data}
                           />
                         </td>
@@ -103,7 +103,7 @@ function Dashboard() {
         </div>
         <button
           type="button"
-          className="border my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white"
+          className="border my-5 py-2 px-2 bg-indigo-600 hover:bg-indigo-500 text-white"
           onClick={handleLogout}
         >
           Logout
